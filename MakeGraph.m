@@ -17,7 +17,7 @@ for i = 1:size(s,2)
 end
 
 outputGraph = digraph(s,t,weights);
-plot(outputGraph,'Layout','force','EdgeLabel',outputGraph.Edges.Weight);
+plot(outputGraph,'EdgeLabel',outputGraph.Edges.Weight, 'XData', x, 'YData', y);
 
 end
 
