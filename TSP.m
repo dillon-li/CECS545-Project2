@@ -22,16 +22,18 @@ coords = ReadFromSample(filename);
 % Make directed graph (weighted and unweighted)
 [gW,g,x,y] = MakeGraph(coords);
 
+% Perform Breadth first search and Depth first search
+BFS_T = bfsearch(g,1,'allevents');
+DFS_T = dfsearch(g,1,'allevents');
+
+% Create parameters for search visualization
+visualizeParams = [{g} {BFS_T} {DFS_T} {x} {y}];
+
 % Plot the weighted graph with shortest path
 [weightedPath, distMin] = PlotGraph(gW,x,y);
 
 % Plot the unweighted graph with shortest path
 [unweightedPath, ~] = PlotGraph(g,x,y);
-
-BFS_T = bfsearch(g,1,'allevents');
-DFS_T = dfsearch(g,1,'allevents');
-
-visualizeParams = [{gW} {BFS_T} {DFS_T} {x} {y}];
 
 end
 
