@@ -1,8 +1,9 @@
-function [ outputGraph, x, y ] = MakeGraph( coords )
+function [ weightedGraph, unweightedGraph, x, y ] = MakeGraph( coords )
 % Function to create an undirected graph from a list of coordinates.
 % Input is coordinates in the form read in from ReadFromSample
 
 % Output is the directed graph and plot p
+% - One weighted, one not weighted
 
 % Create Node Table
 for i = 1:size(coords,2)
@@ -18,10 +19,8 @@ for i = 1:size(s,2)
     weights(i,1) = Distance(x(s(i)), y(s(i)), x(t(i)), y(t(i)));
 end
 
-outputGraph = digraph(s,t,weights);
-p = plot(outputGraph,'EdgeLabel',outputGraph.Edges.Weight, 'XData', x, 'YData', y);
-[dist_path, d1] = shortestpath(outputGraph, 1, 11);
-highlight(p, dist_path, 'EdgeColor', 'r');
+weightedGraph = digraph(s,t,weights);
+unweightedGraph = digraph(s,t);
 
 end
 
