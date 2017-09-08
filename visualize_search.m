@@ -26,7 +26,7 @@ if isa(G,'graph')
     G = digraph(adjacency(G));
 end
 
-h = plot(G,'NodeColor',[0.5 0.5 0.5],'EdgeColor',[0.5 0.5 0.5],'EdgeLabel',G.Edges.Weight,'XData',x,'YData',y);
+h = plot(G,'NodeColor',[0.5 0.5 0.5],'EdgeColor',[0.5 0.5 0.5],'XData',x,'YData',y);
 
 for ii=1:size(t,1)
     switch t.Event(ii)
